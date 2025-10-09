@@ -1,4 +1,9 @@
+/* TextOverlay.css */
+
+/* Reset and base styles */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -7,21 +12,35 @@ body,
 #root {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
   overflow: auto;
 }
-/* TextOverlay.css */
+
+/* Scroll content - invisible but creates scrollable area */
+.scroll-content {
+  position: relative;
+  z-index: 1;
+}
+
+.h-screen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Text overlay container - fixed position */
 .text-overlay-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
+  pointer-events: none; /* Allows clicking through to canvas */
   z-index: 1000;
 }
 
+/* Individual text sections */
 .text-section {
   position: absolute;
   top: 50%;
@@ -40,14 +59,7 @@ body,
   transition: opacity 0.3s ease;
 }
 
-.h-screen {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+/* Text content styling */
 .text-content h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
@@ -88,4 +100,11 @@ body,
   .text-content p {
     font-size: 1rem;
   }
+}
+
+/* Ensure canvas and overlay play nicely */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
 }

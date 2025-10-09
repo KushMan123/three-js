@@ -1,16 +1,13 @@
 {
   "name": "spaceshipe-website",
-  "homepage": "https://KushMan123.github.io/three-js/",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@react-three/cannon": "^6.6.0",

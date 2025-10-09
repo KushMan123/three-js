@@ -1,5 +1,6 @@
 {
   "name": "spaceshipe-website",
+  "homepage": "https://KushMan123.github.io/three-js/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,12 +8,15 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@react-three/cannon": "^6.6.0",
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.3.0",
+    "gh-pages": "^6.3.0",
     "lamina": "^1.2.2",
     "nanoid": "^5.1.5",
     "react": "^19.1.1",

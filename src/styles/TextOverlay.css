@@ -1,0 +1,56 @@
+/* styles.css */
+.text-overlay {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  min-width: 300px;
+  max-width: 400px;
+  color: white;
+  font-family: "Arial", sans-serif;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.text-overlay.enhanced {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.9),
+    rgba(30, 30, 60, 0.9)
+  );
+  border: 1px solid rgba(100, 150, 255, 0.3);
+}
+
+.text-title {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(45deg, #fff, #aaccff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-description {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #cccccc;
+}
+
+/* Optional: Add a subtle animation for when text appears */
+@keyframes textGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(100, 150, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(100, 150, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(100, 150, 255, 0);
+  }
+}
+
+.text-overlay.enhanced {
+  animation: textGlow 3s ease-in-out infinite;
+}

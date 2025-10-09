@@ -15,7 +15,7 @@ export const Experience = () => {
     <>
       {/* <OrbitControls /> */}
       <group>
-        <Background backgroundColors={backgroundColors} />
+        <Background hdrPath="./hdr/HDR_blue_nebulae-1.hdr" />
       </group>
       <Spaceship />
     </>

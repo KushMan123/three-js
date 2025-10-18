@@ -6,7 +6,7 @@ import { useScrollStore } from "../store/scrollStore";
 
 export const AnimatedCamera = () => {
   const { scene, animations, cameras } = useGLTF(
-    "./models/spaceship/CameraAnimation.glb"
+    "./models/spaceship/camera_animation_v3.glb"
   );
   const { actions } = useAnimations(animations, scene);
   const scroll = useScroll();
@@ -38,6 +38,8 @@ export const AnimatedCamera = () => {
 
   // Pointer events for orbital drag
   useEffect(() => {
+    console.log(actions);
+
     const onPointerDown = (e) => {
       isDragging.current = true;
       startDrag.current.set(e.clientX, e.clientY);

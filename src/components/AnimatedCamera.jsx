@@ -17,37 +17,34 @@ export const AnimatedCamera = () => {
   const action = actions["CameraAction.018"];
   const [isScrolling, setIsScrolling] = useState(false);
 
-  // Orbital drag state
   const isDragging = useRef(false);
   const startDrag = useRef(new THREE.Vector2());
   const spherical = useRef(new THREE.Spherical());
-  const target = useRef(new THREE.Vector3()); // orbit target
+  const target = useRef(new THREE.Vector3());
 
-  // Initialize camera to start position of animation
-  useEffect(() => {
-    if (cameras.length > 0) {
-      const camGLTF = cameras[0];
-      camera.position.copy(camGLTF.position);
-      camera.quaternion.copy(camGLTF.quaternion);
-    }
+  // ---- PRE-RENDER CAMERA INIT ----
+  if (cameras.length > 0) {
+    const camGLTF = cameras[0];
+    // Directly set camera position and quaternion before first frame
+    camera.position.copy(camGLTF.position);
+    camera.quaternion.copy(camGLTF.quaternion);
+  }
 
-    if (action) {
-      action.play();
-      action.paused = true;
-    }
-  }, [action, cameras, camera]);
+  // Play animation but pause (so we can control via scroll)
+  if (action && !action.isRunning()) {
+    action.play();
+    action.paused = true;
+  }
 
-  // Pointer events
+  // Pointer events for orbital drag
   useEffect(() => {
     const onPointerDown = (e) => {
       isDragging.current = true;
       startDrag.current.set(e.clientX, e.clientY);
 
-      // Target is current camera position (you can adjust distance if needed)
       target.current
         .copy(camera.position)
         .add(camera.getWorldDirection(new THREE.Vector3()).multiplyScalar(5));
-
       const offset = camera.position.clone().sub(target.current);
       spherical.current.setFromVector3(offset);
     };
@@ -100,11 +97,9 @@ export const AnimatedCamera = () => {
     action.time = THREE.MathUtils.damp(action.time, targetTime, 4, delta);
 
     if (isScrolling) {
-      // Scroll-driven animation
       camera.position.lerp(camGLTF.position, 0.1);
       camera.quaternion.slerp(camGLTF.quaternion, 0.1);
     } else if (isDragging.current) {
-      // Orbital drag
       const newPos = new THREE.Vector3()
         .setFromSpherical(spherical.current)
         .add(target.current);

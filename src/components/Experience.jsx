@@ -2,6 +2,7 @@ import { Spaceship } from "./Spaceship";
 import { Background } from "./Background";
 
 import * as THREE from "three";
+import { SpaceShipMedicalEquipmet } from "./Spaceship_withEquipment";
 
 export const Experience = () => {
   return (
@@ -9,7 +10,7 @@ export const Experience = () => {
       <group>
         <Background hdrPath="./hdr/HDR_blue_nebulae-1.hdr" />
       </group>
-      <Spaceship />
+      <SpaceShipMedicalEquipmet />
     </>
   );
 };

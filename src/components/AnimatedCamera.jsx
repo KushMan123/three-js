@@ -10,7 +10,7 @@ export const AnimatedCamera = () => {
   );
   const { actions } = useAnimations(animations, scene);
   const scroll = useScroll();
-  const { camera, gl } = useThree();
+  const { camera } = useThree();
 
   const setDreiScroll = useScrollStore((s) => s.setDreiScroll);
 
@@ -23,12 +23,19 @@ export const AnimatedCamera = () => {
   const spherical = useRef(new THREE.Spherical());
   const target = useRef(new THREE.Vector3()); // orbit target
 
+  // Initialize camera to start position of animation
   useEffect(() => {
+    if (cameras.length > 0) {
+      const camGLTF = cameras[0];
+      camera.position.copy(camGLTF.position);
+      camera.quaternion.copy(camGLTF.quaternion);
+    }
+
     if (action) {
       action.play();
       action.paused = true;
     }
-  }, [action]);
+  }, [action, cameras, camera]);
 
   // Pointer events
   useEffect(() => {
@@ -36,12 +43,11 @@ export const AnimatedCamera = () => {
       isDragging.current = true;
       startDrag.current.set(e.clientX, e.clientY);
 
-      // Target is current camera lookAt point (forward direction)
+      // Target is current camera position (you can adjust distance if needed)
       target.current
         .copy(camera.position)
         .add(camera.getWorldDirection(new THREE.Vector3()).multiplyScalar(5));
 
-      // Vector from target -> camera
       const offset = camera.position.clone().sub(target.current);
       spherical.current.setFromVector3(offset);
     };
@@ -56,12 +62,12 @@ export const AnimatedCamera = () => {
       const deltaX = (e.clientX - startDrag.current.x) * 0.005;
       const deltaY = (e.clientY - startDrag.current.y) * 0.005;
 
-      spherical.current.theta -= deltaX; // horizontal rotation
+      spherical.current.theta -= deltaX;
       spherical.current.phi = THREE.MathUtils.clamp(
         spherical.current.phi - deltaY,
         0.01,
         Math.PI - 0.01
-      ); // vertical rotation
+      );
 
       startDrag.current.set(e.clientX, e.clientY);
     };
@@ -80,7 +86,6 @@ export const AnimatedCamera = () => {
   useFrame((_, delta) => {
     setDreiScroll(scroll.offset);
 
-    // Scroll detection
     if (scroll.delta > 0 || scroll.delta < 0) {
       if (!isScrolling) setIsScrolling(true);
     } else {
@@ -99,7 +104,7 @@ export const AnimatedCamera = () => {
       camera.position.lerp(camGLTF.position, 0.1);
       camera.quaternion.slerp(camGLTF.quaternion, 0.1);
     } else if (isDragging.current) {
-      // Orbital camera behavior
+      // Orbital drag
       const newPos = new THREE.Vector3()
         .setFromSpherical(spherical.current)
         .add(target.current);

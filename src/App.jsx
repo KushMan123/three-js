@@ -32,7 +32,7 @@ function App() {
       <DescriptionCard />
       <TextSections />
       <Loader />
-      {/* <ScrollLogger /> */}
+      <ScrollLogger />
     </>
   );
 }

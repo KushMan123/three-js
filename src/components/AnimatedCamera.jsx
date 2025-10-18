@@ -38,8 +38,6 @@ export const AnimatedCamera = () => {
 
   // Pointer events for orbital drag
   useEffect(() => {
-    console.log(actions);
-
     const onPointerDown = (e) => {
       isDragging.current = true;
       startDrag.current.set(e.clientX, e.clientY);

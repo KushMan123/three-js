@@ -8,6 +8,7 @@ import { SelectableModel } from "./SelectableModel";
 import { MedicalBox } from "./MedicalBox";
 import { MedicalMonitor } from "./Monitor";
 import { Stethoscope } from "./Stethoscope";
+import { SpaceshipDoor1 } from "./SpaceshipDoor1";
 
 export const Experience = () => {
   return (
@@ -16,6 +17,7 @@ export const Experience = () => {
         <Background hdrPath="./hdr/HDR_blue_nebulae-1.hdr" />
       </group>
       <Spaceship />
+      <SpaceshipDoor1 />
       <FirstAidBox />
       <MedicalBox />
       <MedicalMonitor />

@@ -49,6 +49,7 @@ body,
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .story-section p {
@@ -64,6 +65,7 @@ body,
   padding: 3rem 5rem;
   opacity: 0;
   transition: all 0.25s ease-in-out;
+  pointer-events: none;
 }
 
 .product-card-wrapper.active {

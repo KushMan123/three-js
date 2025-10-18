@@ -1,20 +1,27 @@
 import { Environment } from "@react-three/drei";
-import { useRef } from "react";
 
 import * as THREE from "three";
 
 const SunLight = () => {
-  const lightRef = useRef();
   return (
-    <directionalLight
-      ref={lightRef}
-      position={[10, 20, 10]}
-      intensity={2}
-      color={"#fff5e1"}
-      castShadow
-      shadow-mapSize-width={2048}
-      shadow-mapSize-height={2048}
-    />
+    <>
+      <directionalLight
+        position={[10, 20, 10]}
+        intensity={2}
+        color={"#fff5e1"}
+        castShadow
+        shadow-mapSize-width={2048}
+        shadow-mapSize-height={2048}
+      />
+      <directionalLight
+        position={[-20, 0, -10]}
+        intensity={1}
+        color={"#fff5e1"}
+        castShadow
+        shadow-mapSize-width={2048}
+        shadow-mapSize-height={2048}
+      />
+    </>
   );
 };
 

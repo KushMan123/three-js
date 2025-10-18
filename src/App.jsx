@@ -5,6 +5,12 @@ import { AnimatedCamera } from "./components/AnimatedCamera";
 import { TextSections } from "./components/TextSection";
 import { ScrollLogger } from "./logger/ScrollLooger";
 import { Suspense } from "react";
+import {
+  EffectComposer,
+  Selection,
+  Outline,
+} from "@react-three/postprocessing";
+import { DescriptionCard } from "./components/DescriptionCard";
 
 function App() {
   return (
@@ -13,11 +19,17 @@ function App() {
         <color attach="background" args={["#000000"]} />
         <ScrollControls pages={60} damping={0.1}>
           <Suspense fallback={null}>
-            <Experience />
-            <AnimatedCamera />
+            <Selection>
+              <EffectComposer multisampling={8} autoClear={false}>
+                <Outline blur visibleEdgeColor="white" edgeStrength={100} />
+              </EffectComposer>
+              <Experience />
+              <AnimatedCamera />
+            </Selection>
           </Suspense>
         </ScrollControls>
       </Canvas>
+      <DescriptionCard />
       <TextSections />
       <Loader />
       {/* <ScrollLogger /> */}

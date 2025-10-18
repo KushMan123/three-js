@@ -2,6 +2,7 @@ import { useAnimations, useGLTF, useScroll } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect } from "react";
 import * as THREE from "three";
+import { useScrollStore } from "../store/scrollStore";
 
 export const AnimatedCamera = () => {
   const { scene, animations, cameras } = useGLTF(
@@ -9,7 +10,10 @@ export const AnimatedCamera = () => {
   );
   const { actions } = useAnimations(animations, scene);
   const scroll = useScroll();
+
   const { camera } = useThree();
+
+  const setDreiScroll = useScrollStore((s) => s.setDreiScroll);
 
   const action = actions["CameraAction.018"];
 
@@ -21,6 +25,18 @@ export const AnimatedCamera = () => {
   }, [action]);
 
   useFrame((_, delta) => {
+    setDreiScroll(scroll.offset);
+
+    // if (scroll.delta > 0 || scroll.delta < 0) {
+    //   if (!isScrolling) {
+    //     setIsScrolling(true);
+    //   }
+    // } else {
+    //   if (isScrolling) {
+    //     setIsScrolling(false);
+    //   }
+    // }
+
     if (!action) return;
     const duration = action.getClip().duration;
     const targetTime = duration * scroll.offset;

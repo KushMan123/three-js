@@ -15,96 +15,43 @@ body,
   overflow: auto;
 }
 
-/* Scroll content - invisible but creates scrollable area */
-.scroll-content {
-  position: relative;
-  z-index: 1;
-}
-
-.h-screen {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Text overlay container - fixed position */
-.text-overlay-container {
+.story-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* Allows clicking through to canvas */
-  z-index: 1000;
-}
-
-/* Individual text sections */
-.text-section {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  pointer-events: none;
+  overflow: hidden;
   color: white;
-  font-family: "Arial", sans-serif;
-  max-width: 600px;
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  font-family: "Orbitron", sans-serif;
 }
 
-/* Text content styling */
-.text-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  background: linear-gradient(45deg, #7ea1da, #abaadd);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-content h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #7ea1da;
-}
-
-.text-content p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .text-section {
-    max-width: 90%;
-    padding: 1.5rem;
-  }
-
-  .text-content h1 {
-    font-size: 2rem;
-  }
-
-  .text-content h2 {
-    font-size: 1.8rem;
-  }
-
-  .text-content p {
-    font-size: 1rem;
-  }
-}
-
-/* Ensure canvas and overlay play nicely */
-canvas {
-  position: fixed;
+.story-section {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s, transform 0.5s;
+  text-align: center;
+}
+
+.story-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.story-section p {
+  font-size: 1.5rem;
+  width: 60%;
+  line-height: 1.5;
 }

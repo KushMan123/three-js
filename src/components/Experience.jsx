@@ -9,6 +9,7 @@ import { MedicalBox } from "./MedicalBox";
 import { MedicalMonitor } from "./Monitor";
 import { Stethoscope } from "./Stethoscope";
 import { SpaceshipDoor1 } from "./SpaceshipDoor1";
+import { CommandCenter } from "./Cockpit";
 
 export const Experience = () => {
   return (
@@ -17,6 +18,7 @@ export const Experience = () => {
         <Background hdrPath="./hdr/HDR_blue_nebulae-1.hdr" />
       </group>
       <Spaceship />
+      <CommandCenter />
       <SpaceshipDoor1 />
       <FirstAidBox />
       <MedicalBox />

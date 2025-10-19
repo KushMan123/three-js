@@ -563,34 +563,37 @@ export function Spaceship(props) {
         geometry={nodes.Mesh062_12.geometry}
         material={materials.Light_Fire}
       />
-      <mesh
-        geometry={nodes.Mesh056.geometry}
-        material={materials.Painted_Metal_White}
-      />
-      <mesh geometry={nodes.Mesh056_1.geometry} material={materials.Light} />
-      <mesh geometry={nodes.Mesh056_2.geometry} material={materials.Screen} />
-      <mesh
-        geometry={nodes.Mesh056_3.geometry}
-        material={materials.Orange_paint_metal}
-      />
-      <mesh geometry={nodes.Mesh056_4.geometry} material={materials.Steel} />
-      <mesh
-        geometry={nodes.Mesh056_5.geometry}
-        material={materials.Wipe_marks_metal}
-      />
-      <mesh
-        geometry={nodes.Mesh056_6.geometry}
-        material={materials.Light_Blue}
-      />
-      <mesh geometry={nodes.Mesh056_7.geometry} material={materials.Chrome} />
-      <mesh
-        geometry={nodes.Mesh056_8.geometry}
-        material={materials.Glass_blue}
-      />
-      <mesh
-        geometry={nodes.Mesh056_9.geometry}
-        material={materials.Furniture_white}
-      />
+      {/* <group>
+        <mesh
+          geometry={nodes.Mesh056.geometry}
+          material={materials.Painted_Metal_White}
+        />
+        <mesh geometry={nodes.Mesh056_1.geometry} material={materials.Light} />
+        <mesh geometry={nodes.Mesh056_2.geometry} material={materials.Screen} />
+        <mesh
+          geometry={nodes.Mesh056_3.geometry}
+          material={materials.Orange_paint_metal}
+        />
+        <mesh geometry={nodes.Mesh056_4.geometry} material={materials.Steel} />
+        <mesh
+          geometry={nodes.Mesh056_5.geometry}
+          material={materials.Wipe_marks_metal}
+        />
+        <mesh
+          geometry={nodes.Mesh056_6.geometry}
+          material={materials.Light_Blue}
+        />
+        <mesh geometry={nodes.Mesh056_7.geometry} material={materials.Chrome} />
+        <mesh
+          geometry={nodes.Mesh056_8.geometry}
+          material={materials.Glass_blue}
+        />
+        <mesh
+          geometry={nodes.Mesh056_9.geometry}
+          material={materials.Furniture_white}
+        />
+      </group> */}
+
       <mesh
         geometry={nodes.Mesh106.geometry}
         material={materials.Brushed_Metal}

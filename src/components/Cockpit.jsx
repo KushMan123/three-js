@@ -17,6 +17,13 @@ export function CommandCenter(props) {
     "textures/command_center_secondaryScreen.png"
   );
 
+  screenTexture.flipY = false;
+  screenTexture.encoding = THREE.sRGBEncoding;
+  mainScreen.flipY = false;
+  mainScreen.encoding = THREE.sRGBEncoding;
+  secondaryScreen.flipY = false;
+  secondaryScreen.encoding = THREE.sRGBEncoding;
+
   const screenMaterial = new THREE.MeshStandardMaterial({
     map: screenTexture,
   });

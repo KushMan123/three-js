@@ -5,33 +5,51 @@ import { motion, AnimatePresence } from "framer-motion";
 // Define your sections with scroll ranges
 const sections = [
   {
-    title: "Spaceship",
-    text: "The spaceship emerges from the nebula.",
+    title: "Year: 2137",
+    text: "Thirteen years ago, the interstellar medical vessel STRS-234 departed from Earth's orbit. Its mission: to travel across the void to Kepler-67, humanity's first off-world colony — a shining testament to human ambition. But with ambition came unforeseen cost.",
     start: 0.001,
-    end: 0.171,
+    end: 0.08,
+  },
+  {
+    title: "The Biological Shift",
+    text: "As the settlers of Kepler-67 thrived in their artificial biospheres, subtle biological shifts began to emerge — weakened immune systems, mineral imbalances, emotional desynchronization. Living away from Earth's biosphere had begun to change the very chemistry of human life.",
+    start: 0.082,
+    end: 0.14,
+  },
+  {
+    title: "Earth's Response",
+    text: "When the first distress signals arrived, Earth responded not with weapons or warships… but with healing.",
+    start: 0.142,
+    end: 0.18,
+  },
+  {
+    title: "The Vessel of Preventive Hope",
+    text: "Built by Oxygen Healthcare Systems, STRS-234 wasn't an ordinary spacecraft. It was a mobile ecosystem of wellness — a living embodiment of Earth's evolution from reactive medicine to preventive care.",
+    start: 0.182,
+    end: 0.23,
   },
   {
     title: "Resting Room",
-    text: "Ancient ruins drift through cosmic light.",
-    start: 0.185,
-    end: 0.2306,
+    text: "A sanctuary of healing and restoration, where the crew finds solace amidst the stars.",
+    start: 0.232,
+    end: 0.28,
   },
   {
     title: "Cockpit",
-    text: "The stars align as destiny unfolds.",
-    start: 0.294,
-    end: 0.61,
+    text: "The command center where hope navigates through the void, guiding the vessel toward its mission of healing.",
+    start: 0.282,
+    end: 0.45,
   },
   {
     title: "Device Room",
-    text: "Mysteries of the device room unfold.",
-    start: 0.697,
-    end: 0.85,
+    text: "Advanced medical technology pulses with life, monitoring and preserving the health of those aboard.",
+    start: 0.452,
+    end: 0.65, 
   },
   {
     title: "Equipment Room",
-    text: "All equipment is ready for action.",
-    start: 0.9,
+    text: "Every instrument, every tool, every piece of equipment stands ready — a testament to humanity's commitment to healing across the stars.",
+    start: 0.652,
     end: 1,
   },
 ];
@@ -66,7 +84,7 @@ export const TextSections = () => {
             transition={{ duration: 0.8 }}
           >
             <h1>{activeSection.title}</h1>
-            {/* <p>{activeSection.text}</p> */}
+            {<p>{activeSection.text}</p> }
           </motion.div>
         )}
       </AnimatePresence>

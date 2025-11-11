@@ -10,6 +10,7 @@ import { MedicalMonitor } from "./Monitor";
 import { Stethoscope } from "./Stethoscope";
 import { SpaceshipDoor1 } from "./SpaceshipDoor1";
 import { CommandCenter } from "./Cockpit";
+import { Planet } from "./Planet";
 
 export const Experience = () => {
   return (
@@ -24,6 +25,7 @@ export const Experience = () => {
       <MedicalBox />
       <MedicalMonitor />
       <Stethoscope />
+      <Planet />
     </>
   );
 };

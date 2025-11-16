@@ -4,13 +4,28 @@ Command: npx gltfjsx@6.5.3 Planet.glb
 */
 
 import React from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, useTexture } from "@react-three/drei";
+import * as THREE from "three";
 
-export function Planet(props) {
+export function Planet({ texturePath, ...props }) {
   const { nodes, materials } = useGLTF("./models/spaceship/Planet.glb");
+  
+  // Load texture following the same pattern as House_Interior.jsx
+  let planetMaterial = nodes.Sphere.material;
+  
+  if (texturePath) {
+    const planetTexture = useTexture(texturePath);
+    planetTexture.flipY = false;
+    planetTexture.encoding = THREE.sRGBEncoding;
+    
+    planetMaterial = new THREE.MeshStandardMaterial({
+      map: planetTexture,
+    });
+  }
+  
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Sphere.geometry} material={nodes.Sphere.material} />
+      <mesh geometry={nodes.Sphere.geometry} material={planetMaterial} />
     </group>
   );
 }

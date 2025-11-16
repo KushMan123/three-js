@@ -7,7 +7,7 @@ const sections = [
   {
     title: "Year: 2137",
     text: "Thirteen years ago, the interstellar medical vessel STRS-234 departed from Earth's orbit. Its mission: to travel across the void to Kepler-67, humanity's first off-world colony — a shining testament to human ambition. But with ambition came unforeseen cost.",
-    start: 0.001,
+    start: 0.00,
     end: 0.025,
   },
   {

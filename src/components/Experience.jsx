@@ -25,7 +25,7 @@ export const Experience = () => {
       <MedicalBox />
       <MedicalMonitor />
       <Stethoscope />
-      <Planet />
+      <Planet texturePath="textures/earthTexture.jpg" />
     </>
   );
 };

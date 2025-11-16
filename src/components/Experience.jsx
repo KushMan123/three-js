@@ -10,7 +10,8 @@ import { MedicalMonitor } from "./Monitor";
 import { Stethoscope } from "./Stethoscope";
 import { SpaceshipDoor1 } from "./SpaceshipDoor1";
 import { CommandCenter } from "./Cockpit";
-import { Planet } from "./Planet";
+import { Earth } from "./Earth";
+import { EarthAtmosphere } from "./EarthAtmosphere";
 
 export const Experience = () => {
   return (
@@ -25,7 +26,8 @@ export const Experience = () => {
       <MedicalBox />
       <MedicalMonitor />
       <Stethoscope />
-      <Planet texturePath="textures/earthTexture.jpg" />
+      <Earth />
+      <EarthAtmosphere />
     </>
   );
 };

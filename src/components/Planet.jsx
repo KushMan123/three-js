@@ -10,7 +10,7 @@ import * as THREE from "three";
 export function Planet({ texturePath, ...props }) {
   const { nodes, materials } = useGLTF("./models/spaceship/Planet.glb");
   
-  // Load texture following the same pattern as House_Interior.jsx
+  
   let planetMaterial = nodes.Sphere.material;
   
   if (texturePath) {

@@ -26,8 +26,8 @@ export const Experience = () => {
       <MedicalBox />
       <MedicalMonitor />
       <Stethoscope />
-      <Earth />
-      <EarthAtmosphere />
+      <Earth position={[638.593, 0, 0]} />
+      <EarthAtmosphere position={[1385.66, -0.000001, 0]} />
     </>
   );
 };

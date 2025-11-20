@@ -12,11 +12,12 @@ import {
 } from "@react-three/postprocessing";
 import { DescriptionCard } from "./components/DescriptionCard";
 import { TVScreen } from "./components/TVScreen";
+import { FadeCanvas } from "./components/FadeCanvas";
 
 function App() {
   return (
     <>
-      <Canvas camera={{fov: 50,near: 0.1,far: 100000}}>
+      <Canvas camera={{ fov: 50, near: 0.1, far: 100000 }}>
         <color attach="background" args={["#000000"]} />
         <ScrollControls pages={60} damping={0.1}>
           <Suspense fallback={null}>
@@ -35,6 +36,7 @@ function App() {
       <TVScreen />
       <Loader />
       <ScrollLogger />
+      <FadeCanvas />
     </>
   );
 }

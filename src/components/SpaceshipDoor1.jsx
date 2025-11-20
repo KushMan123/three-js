@@ -32,7 +32,7 @@ export function SpaceshipDoor1(props) {
     if (clip && mixer) {
       const scrollOffset = scroll.offset; // 0 → 1
       // set the animation time based on scroll
-      actions[clip.name].time = clip.duration * scrollOffset * 4.35;
+      actions[clip.name].time = clip.duration * scrollOffset * 2.3;
       mixer.update(0); // required to apply the time
     }
   });

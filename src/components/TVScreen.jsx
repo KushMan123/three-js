@@ -3,9 +3,7 @@ import { useScrollStore } from "../store/scrollStore";
 
 // Define multiple scroll ranges where TV screen should be visible
 const TV_SCROLL_RANGES = [
-  { start: 0.282, end: 0.615 }, // Cockpit section
-  { start: 0.667, end: 0.83 }, // Device Room section
-  { start: 0.92, end: 1 }, // Equipment Room section
+  { start: 0.57, end: 0.611 }, // Cockpit section
   // Add more ranges as needed
 ];
 

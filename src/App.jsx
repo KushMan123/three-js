@@ -11,6 +11,7 @@ import {
   Outline,
 } from "@react-three/postprocessing";
 import { DescriptionCard } from "./components/DescriptionCard";
+import { TVScreen } from "./components/TVScreen";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       </Canvas>
       <DescriptionCard />
       <TextSections />
+      <TVScreen />
       <Loader />
       <ScrollLogger />
     </>

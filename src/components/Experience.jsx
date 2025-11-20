@@ -12,8 +12,11 @@ import { SpaceshipDoor1 } from "./SpaceshipDoor1";
 import { CommandCenter } from "./Cockpit";
 import { Earth } from "./Earth";
 import { EarthAtmosphere } from "./EarthAtmosphere";
+import { useRef } from "react";
 
 export const Experience = () => {
+  const effectRef = useRef();
+
   return (
     <>
       <group>
@@ -26,6 +29,7 @@ export const Experience = () => {
       <MedicalBox />
       <MedicalMonitor />
       <Stethoscope />
+
       <Earth position={[638.593, 0, 0]} scale={1} />
       <EarthAtmosphere position={[1385.66, -0.000001, 0]} scale={1.01} />
     </>

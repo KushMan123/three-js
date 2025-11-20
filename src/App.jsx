@@ -16,7 +16,7 @@ import { TVScreen } from "./components/TVScreen";
 function App() {
   return (
     <>
-      <Canvas>
+      <Canvas camera={{fov: 50,near: 0.1,far: 100000}}>
         <color attach="background" args={["#000000"]} />
         <ScrollControls pages={60} damping={0.1}>
           <Suspense fallback={null}>

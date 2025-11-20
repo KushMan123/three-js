@@ -6,7 +6,7 @@ import { useScrollStore } from "../store/scrollStore";
 
 export const AnimatedCamera = () => {
   const { scene, animations, cameras } = useGLTF(
-    "./models/spaceship/camera_animation_v4.glb"
+    "./models/spaceship/camera_animation_v5.glb"
   );
   const { actions } = useAnimations(animations, scene);
   const scroll = useScroll();

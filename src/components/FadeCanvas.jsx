@@ -3,7 +3,8 @@ import { useScrollStore } from "../store/scrollStore";
 
 // Define multiple scroll ranges where TV screen should be visible
 const FADE_IN_RANGES = [
-  { start: 0.176, end: 0.269 }, // Cockpit section
+  { start: 0.0, end: 0.002 },
+  { start: 0.269, end: 0.362 }, // Earth section
 ];
 
 export const FadeCanvas = () => {

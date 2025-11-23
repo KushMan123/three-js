@@ -13,6 +13,7 @@ import {
 import { DescriptionCard } from "./components/DescriptionCard";
 import { TVScreen } from "./components/TVScreen";
 import { FadeCanvas } from "./components/FadeCanvas";
+import { Mainmenu } from "./components/MainMenu";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
       <DescriptionCard />
       <TextSections />
       <TVScreen />
+      <Mainmenu />
       <Loader />
       <ScrollLogger />
       <FadeCanvas />

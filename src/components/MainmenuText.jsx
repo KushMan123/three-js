@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-export const MainmenuText = ({ text }) => {
+export const MainmenuText = ({ text, onButtonClick }) => {
   const textRef = useRef(null);
   const intervalRef = useRef(null);
 
@@ -32,14 +32,20 @@ export const MainmenuText = ({ text }) => {
     }, 30);
   };
 
+  const handleButtonClick = () => {
+    if (onButtonClick) {
+      onButtonClick();
+    }
+  };
+
   return (
     <div className="mainmenu-content">
       <h1 ref={textRef} onMouseOver={handleMouseOver} data-value={text}>
         {text}
       </h1>
-      <div className="btn">
-        <span class="btn__circle"></span>
-        <span class="btn__white-circle">
+      <div className="btn" onClick={handleButtonClick} style={{ cursor: 'pointer' }}>
+        <span className="btn__circle"></span>
+        <span className="btn__white-circle">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             id="icon-arrow-right"
@@ -48,7 +54,7 @@ export const MainmenuText = ({ text }) => {
             <path d="M17.104 5.072l-4.138-4.014L14.056 0l6 5.82-6 5.82-1.09-1.057 4.138-4.014H0V5.072h17.104z"></path>
           </svg>
         </span>
-        <span class="btn__text">Discover the project</span>
+        <span className="btn__text">Discover the project</span>
       </div>
     </div>
   );

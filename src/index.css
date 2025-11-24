@@ -408,6 +408,15 @@ body,
   opacity: 1;
 }
 
+/* Prevent scrolling when main menu is visible */
+.mainmenu.visible ~ * {
+  pointer-events: none;
+}
+
+body:has(.mainmenu.visible) {
+  overflow: hidden;
+}
+
 .mainmenu.visible .mainmenu-content {
   display: flex;
   justify-content: center;

@@ -12,6 +12,7 @@ import { SpaceshipDoor1 } from "./SpaceshipDoor1";
 import { CommandCenter } from "./Cockpit";
 import { Earth } from "./Earth";
 import { EarthAtmosphere } from "./EarthAtmosphere";
+import { ExtraSpaceShipTemp } from "./ExtraSpaceShipTemp";
 import { useRef } from "react";
 
 export const Experience = () => {
@@ -29,8 +30,9 @@ export const Experience = () => {
       <MedicalBox />
       <MedicalMonitor />
       <Stethoscope />
-      <Earth position={[525.82, 0, -67.552]} scale={1} />
-      <EarthAtmosphere position={[1272.9, -0.000001, -67.552]} scale={1.01} />
+      <ExtraSpaceShipTemp />
+      <Earth position={[-2749.84, 0,0]} scale={1} />
+      <EarthAtmosphere position={[-2002.78, -0.000001, 0]} scale={1.01} />
     </>
   );
 };

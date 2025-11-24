@@ -3,21 +3,26 @@ import { useScrollStore } from "../store/scrollStore";
 
 // Define multiple scroll ranges where TV screen should be visible
 const FADE_IN_RANGES = [
-  { start: 0.0, end: 0.002 },
-  { start: 0.269, end: 0.362 }, // Earth section
+  { start: 0.02468422376936817, end: 0.03468422376936817, opacity: 0.9 },
+  { start: 0.04221778874504036, end: 0.05, opacity: 0.9 }, // Earth section - fully opaque
 ];
 
 export const FadeCanvas = () => {
   const dreiScroll = useScrollStore((s) => s.dreiScroll);
-  const [isVisible, setIsVisible] = useState(false);
+  const [opacity, setOpacity] = useState(0);
 
   useEffect(() => {
-    const shouldBEVisible = FADE_IN_RANGES.some(
+    const activeRange = FADE_IN_RANGES.find(
       (range) => dreiScroll >= range.start && dreiScroll < range.end
     );
-
-    setIsVisible(shouldBEVisible);
+    
+    setOpacity(activeRange ? activeRange.opacity : 0);
   }, [dreiScroll]);
 
-  return <div className={`fade-canvas ${isVisible ? "fade-in" : " "}`}></div>;
+  return (
+    <div 
+      className="fade-canvas" 
+      style={{ opacity, transition: 'opacity 0.5s ease-in' }}
+    />
+  );
 };
